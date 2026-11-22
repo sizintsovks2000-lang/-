@@ -35,3 +35,33 @@ def read_float(prompt: str) -> float:
             return float(raw)
         except ValueError:
             print(" Ошибка: введите число (например, 199.99).")
+
+def main() -> None:
+    print("=" * 40)
+    print("   КАЛЬКУЛЯТОР СКИДОК")
+    print("  Команды: calc — рассчитать, exit — выход")
+    print("=" * 40)
+
+    while True:
+        command = input("\nВведите команду (calc/exit): ").strip().lower()
+
+        if command == "exit":
+            print(" До свидания!")
+            break
+
+        if command != "calc":
+            print("  Неизвестная команда. Используйте 'calc' или 'exit'.")
+            continue
+
+        try:
+            price = read_float("Цена товара: ")
+            discount = read_float("Скидка (%): ")
+
+            result = calculate_discount(price, discount)
+            print_result(result)
+
+        except ValueError as e:
+            print(f" Ошибка: {e}")
+        except Exception as e:
+            print(f"Непредвиденная ошибка: {e}")
+
