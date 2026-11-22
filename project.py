@@ -26,3 +26,12 @@ def print_result(result: dict) -> None:
     print(f"  Экономия        : {result['saved']:.2f} ₽")
     print(f"  Итоговая цена   : {result['final']:.2f} ₽")
     print("=" * 40 + "\n")
+
+def read_float(prompt: str) -> float:
+    """Безопасный ввод числа с повторной попыткой."""
+    while True:
+        raw = input(prompt).strip().replace(",", ".")
+        try:
+            return float(raw)
+        except ValueError:
+            print(" Ошибка: введите число (например, 199.99).")
