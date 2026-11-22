@@ -17,3 +17,12 @@ def calculate_discount(price: float, discount: float) -> dict:
         "saved": round(float(saved), 2),
         "final": round(float(final), 2),
     }
+
+def print_result(result: dict) -> None:
+    """Красивый вывод результата."""
+    print("\n" + "=" * 40)
+    print(f"  Цена без скидки : {result['price']:.2f} ₽")
+    print(f"  Скидка          : {result['discount']:.2f} %")
+    print(f"  Экономия        : {result['saved']:.2f} ₽")
+    print(f"  Итоговая цена   : {result['final']:.2f} ₽")
+    print("=" * 40 + "\n")
